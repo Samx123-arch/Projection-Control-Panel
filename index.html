@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projection Control Panel</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0f;
+            color: #ffffff;
+        }
+
+        header {
+            padding: 30px 40px;
+            border-bottom: 1px solid #25252d;
+            background: #111116;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+            color: #8e8e9a;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 25px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: #15151c;
+            border: 1px solid #272731;
+            border-radius: 14px;
+            padding: 22px;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            border-color: #555563;
+            background: #191920;
+        }
+
+        .number {
+            color: #777784;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 19px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #a6a6b1;
+            font-size: 14px;
+            line-height: 1.5;
+            min-height: 65px;
+        }
+
+        .url {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background: #0d0d12;
+            color: #8ab4ff;
+            font-family: Consolas, monospace;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        button {
+            flex: 1;
+            border: 0;
+            border-radius: 8px;
+            padding: 11px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #ffffff;
+            color: #111111;
+        }
+
+        button:hover {
+            background: #dddddd;
+        }
+
+        .copy {
+            background: #272731;
+            color: white;
+        }
+
+        .copy:hover {
+            background: #353541;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666672;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎥 Projection Control Panel</h1>
+    <p>Control y acceso rápido a las interfaces del proyector</p>
+</header>
+
+<div class="container">
+
+    <div class="grid">
+
+        <div class="card">
+            <div class="number">01</div>
+            <div class="title">🎬 Final Scene</div>
+            <div class="description">
+                La escena final. Pensada para mostrarse en fullscreen
+                directamente en el proyector.
+            </div>
+            <div class="url">http://127.0.0.1:8000/</div>
+            <div class="buttons">
+                <button onclick="openPage('/')">Abrir</button>
+                <button class="copy" onclick="copyUrl('/')">Copiar</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="number">02</div>
+            <div class="title">🛠️ Editor</div>
+            <div class="description">
+                Crea polígonos, conecta dispositivos y configura la lógica
+                del proyecto.
+            </div>
+            <div class="url">http://127.0.0.1:8000/editor</div>
+            <div class="buttons">
+                <button onclick="openPage('/editor')">Abrir</button>
+                <button class="copy" onclick="copyUrl('/editor')">Copiar</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="number">03</div>
+            <div class="title">📐 Projection Editor</div>
+            <div class="description">
+                Réplica editable 1:1 de la escena. Permite mover las formas
+                a escala de la pared.
+            </div>
+            <div class="url">http://127.0.0.1:8000/editor/projection</div>
+            <div class="buttons">
+                <button onclick="openPage('/editor/projection')">Abrir</button>
+                <button class="copy" onclick="copyUrl('/editor/projection')">Copiar</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="number">04</div>
+            <div class="title">🎨 Style</div>
+            <div class="description">
+                Inspector para modificar la apariencia de cada objeto.
+            </div>
+            <div class="url">http://127.0.0.1:8000/style</div>
+            <div class="buttons">
+                <button onclick="openPage('/style')">Abrir</button>
+                <button class="copy" onclick="copyUrl('/style')">Copiar</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="number">05</div>
+            <div class="title">👁️ Style Preview</div>
+            <div class="description">
+                Vista previa que se comporta como la escena principal,
+                pero registra los clics en pantalla y consola.
+            </div>
+            <div class="url">http://127.0.0.1:8000/style/preview</div>
+            <div class="buttons">
+                <button onclick="openPage('/style/preview')">Abrir</button>
+                <button class="copy" onclick="copyUrl('/style/preview')">Copiar</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="number">06</div>
+            <div class="title">⚙️ Tune</div>
+            <div class="description">
+                Ajustes rápidos de efectos, colores y velocidad de cada
+                objeto.
+            </div>
+            <div class="url">http://127.0.0.1:8000/tune</div>
+            <div class="buttons">
+                <button onclick="openPage('/tune')">Abrir</button>
+                <button class="copy" onclick="copyUrl('/tune')">Copiar</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="number">07</div>
+            <div class="title">🔤 Text Projector</div>
+            <div class="description">
+                Proyector de texto en pantalla completa.
+            </div>
+            <div class="url">http://127.0.0.1:8000/text</div>
+            <div class="buttons">
+                <button onclick="openPage('/text')">Abrir</button>
+                <button class="copy" onclick="copyUrl('/text')">Copiar</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="number">08</div>
+            <div class="title">✏️ Text Editor</div>
+            <div class="description">
+                Panel de control para modificar el contenido mostrado por
+                el proyector de texto.
+            </div>
+            <div class="url">http://127.0.0.1:8000/text/editor</div>
+            <div class="buttons">
+                <button onclick="openPage('/text/editor')">Abrir</button>
+                <button class="copy" onclick="copyUrl('/text/editor')">Copiar</button>
+            </div>
+        </div>
+
+
+        <div class="card">
+            <div class="number">09</div>
+            <div class="title">📏 Align</div>
+            <div class="description">
+                Ajusta la posición de los polígonos rastreados. Está pensado
+                para rigs con stepper motors.
+            </div>
+            <div class="url">http://127.0.0.1:8000/align</div>
+            <div class="buttons">
+                <button onclick="openPage('/align')">Abrir</button>
+                <button class="copy" onclick="copyUrl('/align')">Copiar</button>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    Projection Mapping Control Panel
+</footer>
+
+
+<script>
+
+    const BASE_URL = "http://127.0.0.1:8000";
+
+    function openPage(path) {
+        window.open(BASE_URL + path, "_blank");
+    }
+
+    function copyUrl(path) {
+        const url = BASE_URL + path;
+
+        navigator.clipboard.writeText(url).then(() => {
+            alert("URL copiada:\n" + url);
+        });
+    }
+
+</script>
+
+</body>
+</html>
