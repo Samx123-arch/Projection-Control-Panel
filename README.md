@@ -31,7 +31,7 @@ El panel apunta al servidor local `http://127.0.0.1:8000`.
 Estructura recomendada:
 
 ```text
-proyecto/
+Projection Control Panel/
 ├── index.html
 ├── logo.png
 └── favicon.ico   # opcional, si se usa un favicon .ico
@@ -51,26 +51,6 @@ Los nombres de los archivos pueden cambiar, pero las rutas dentro del HTML deben
 
 El panel puede abrirse directamente haciendo doble clic en `index.html`. No necesita un servidor propio, aunque el servidor del proyecto sí debe estar encendido para abrir las interfaces listadas.
 
-## Instalación y uso
-
-1. Guarda el código del panel en un archivo llamado `index.html`.
-2. Coloca el favicon en la misma carpeta, por ejemplo `logo.png`.
-3. Dentro de `<head>`, agrega la línea correspondiente:
-
-   ```html
-   <link rel="icon" type="image/png" href="logo.png">
-   ```
-
-   Si utilizas un archivo ICO, usa:
-
-   ```html
-   <link rel="icon" href="favicon.ico">
-   ```
-
-4. Inicia el servidor del proyecto como lo haces normalmente.
-5. Abre `index.html` en el navegador.
-6. Pulsa **Abrir** para entrar en una página o **Copiar** para copiar su URL.
-
 ## Cómo funciona
 
 El panel define una URL base:
@@ -88,30 +68,6 @@ function openPage(path) {
 ```
 
 El botón **Copiar** copia la URL completa. Esta función utiliza la API del portapapeles del navegador, por lo que puede depender de los permisos y del contexto de seguridad del navegador.
-
-## Personalización
-
-### Cambiar el título
-
-Modifica la etiqueta `<title>` en el `<head>`:
-
-```html
-<title>Projection Control Panel</title>
-```
-
-### Cambiar el favicon
-
-Actualiza la ruta del atributo `href`:
-
-```html
-<link rel="icon" type="image/png" href="logo.png">
-```
-
-Puedes usar un PNG cuadrado o un archivo `.ico`. Si el icono no cambia enseguida, recarga la página forzando la actualización con `Ctrl + F5` o prueba una nueva pestaña.
-
-### Cambiar la dirección del servidor
-
-Si el servidor utiliza otra dirección o puerto, modifica `BASE_URL` en el JavaScript y actualiza las URLs que aparecen en las tarjetas si están escritas directamente en el HTML.
 
 ## Flujo de trabajo sugerido
 
